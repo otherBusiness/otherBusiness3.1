@@ -8,6 +8,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,6 +31,10 @@ public class Project implements Serializable{
 	@Column(name = "descriptionProject", nullable = false, length = 500)
 	private String descriptionProject;
 	
+	@ManyToOne
+	@JoinColumn(name = "idCategory", nullable = false)
+	private Category category;
+	
 	private float costProject;
 	private Date startDateProject;
 	private Date finishDateProject;
@@ -39,7 +45,7 @@ public class Project implements Serializable{
 	}
 
 	public Project(int idProject, String nameProject, String nameGroupProject, String descriptionProject,
-			float costProject, Date startDateProject, Date finishDateProject) {
+			float costProject, Date startDateProject, Date finishDateProject, Category category) {
 		super();
 		this.idProject = idProject;
 		this.nameProject = nameProject;
@@ -48,6 +54,15 @@ public class Project implements Serializable{
 		this.costProject = costProject;
 		this.startDateProject = startDateProject;
 		this.finishDateProject = finishDateProject;
+		this.category = category;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 
 	public int getIdProject() {

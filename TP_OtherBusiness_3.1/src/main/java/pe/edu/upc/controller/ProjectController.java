@@ -9,12 +9,15 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entity.Category;
 import pe.edu.upc.entity.Project;
+import pe.edu.upc.serviceinterface.IcategoryService;
 import pe.edu.upc.serviceinterface.IprojectService;
 
 @Named
 @RequestScoped
 public class ProjectController implements Serializable {
+	
 	/**
 	 * 
 	 */
@@ -24,15 +27,25 @@ public class ProjectController implements Serializable {
 	@Inject
 	private IprojectService iService;
 
+	@Inject
+	private IcategoryService caService;
+
 	private Project i;
+	private Category ca;
+
 	List<Project> listaProject;
+	List<Category> listaCategory;
 
 	// constructor
 	@PostConstruct
 	public void init() {
 		this.listaProject = new ArrayList<Project>();
+		this.listaCategory = new ArrayList<Category>();
 		this.i = new Project();
+		this.ca = new Category();
 		this.list();
+		this.listCategory();
+
 	}
 
 	// Metodos
@@ -59,9 +72,19 @@ public class ProjectController implements Serializable {
 		}
 	}
 
+	public void listCategory() {
+		try {
+			listaCategory = caService.list();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 	public void cleanProject() {
 		this.init();
 	}
+
+	// getters y setters
 
 	public IprojectService getiService() {
 		return iService;
@@ -87,7 +110,29 @@ public class ProjectController implements Serializable {
 		this.listaProject = listaProject;
 	}
 
-	// getters y setters
-	
+	public IcategoryService getCaService() {
+		return caService;
+	}
 
+	public void setCaService(IcategoryService caService) {
+		this.caService = caService;
+	}
+
+	public Category getCa() {
+		return ca;
+	}
+
+	public void setCa(Category ca) {
+		this.ca = ca;
+	}
+
+	public List<Category> getListaCategory() {
+		return listaCategory;
+	}
+
+	public void setListaCategory(List<Category> listaCategory) {
+		this.listaCategory = listaCategory;
+	}
+
+	
 }

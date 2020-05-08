@@ -64,6 +64,10 @@
 									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC"/>
 								</h:outputText>
 							</p:column>
+						
+							<p:column headerText="Category" sortBy="#{pro.category.nameCategory}">
+								<h:outputText value="#{pro.category.nameCategory}" />
+							</p:column>
 							
 						</p:dataTable>
 					</div>

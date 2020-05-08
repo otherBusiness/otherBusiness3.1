@@ -77,6 +77,14 @@
 				showOn="button" timeZone="UTC" required="true">
 			</p:calendar>
 			<br />
+			<p:outputLabel for="cboCategory" value="Category" />
+			<p:selectOneMenu id="cboCategory"
+				value="#{projectController.i.category}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{projectController.listaCategory}"
+					var="m" itemLabel="#{m.nameCategory}" itemValue="#{m}" />
+			</p:selectOneMenu>
+			<br />
 			
 			
 			
