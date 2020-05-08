@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="OtherBusiness"
+		transaction-type="JTA">
+		<jta-data-source>java:/otherBusinessDS</jta-data-source>
+		<!-- … INICIO __ aqui las clases creadas de entity ______________________… -->
+		<class>pe.edu.upc.entity.Student</class>
+		<class>pe.edu.upc.entity.Campus</class>
+		<class>pe.edu.upc.entity.Category</class>
+		<class>pe.edu.upc.entity.CreditCard</class>
+		<class>pe.edu.upc.entity.Investor</class>
+		<class>pe.edu.upc.entity.Project</class>
+
+   		<class>pe.edu.upc.entity.Customer</class>
+   		<class>pe.edu.upc.entity.Rol</class>
+   		<class>pe.edu.upc.entity.User</class>
+   		<class>pe.edu.upc.entity.UserRol</class>
+   
+
+		<!-- … FIN __ aqui las clases creadas de entity __________________________… -->
+		<properties>
+			<property
+				name="javax.persistence.schema-generation.database.action"
+				value="update" />
+		</properties>
+	</persistence-unit>
+</persistence>
