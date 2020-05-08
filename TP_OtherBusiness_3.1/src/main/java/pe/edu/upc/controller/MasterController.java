@@ -1,6 +1,5 @@
 package pe.edu.upc.controller;
 
-
 import java.io.Serializable;
 import java.util.List;
 
@@ -16,7 +15,7 @@ import pe.edu.upc.serviceinterface.IRolService;
 @Named
 @ViewScoped
 public class MasterController implements Serializable {
-	
+
 	/**
 	 * 
 	 */
@@ -28,23 +27,23 @@ public class MasterController implements Serializable {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
 			User us = (User) context.getExternalContext().getSessionMap().get("user");
-			
-			if(us == null) {
+
+			if (us == null) {
 				context.getExternalContext().redirect("index.xhtml");
-			}else {
-				//verificacion de roles
+			} else {
+				// verificacion de roles
 				String viewId = context.getViewRoot().getViewId();
 				boolean rpta = this.verificarMenu(viewId);
-				
-				if(!rpta) {
+
+				if (!rpta) {
 					context.getExternalContext().redirect("./403.xhtml");
 				}
-			}			
+			}
 		} catch (Exception e) {
 
 		}
 	}
-	
+
 	public boolean verificarMenu(String viewId) throws Exception {
 		FacesContext context = FacesContext.getCurrentInstance();
 		User us = (User) context.getExternalContext().getSessionMap().get("user");
@@ -53,19 +52,32 @@ public class MasterController implements Serializable {
 
 		String rol = "";
 		switch (viewId) {
-		case "/project.xhtml":
+		// case "/project.xhtml":
+		// rol = "USER,ADMIN";
+		// break;
+
+		case "/panel.xhtml":
 			rol = "USER,ADMIN";
 			break;
+
+//		case "/project.xhtml":
+//			rol = "USER,ADMIN";
+//			break;
+
 		case "/listProject.xhtml":
 			rol = "ADMIN";
 			break;
 		case "/listStudent.xhtml":
 			rol = "USER";
 			break;
-		case "/panel.xhtml":
-			rol = "ADMIN,USER";
-			break;
-		
+			
+		case "/listInvestor.xhtml":
+			rol = "USER";
+			break;	
+		// case "/panel.xhtml":
+		// rol = "ADMIN,USER";
+		// break;
+
 		default:
 			break;
 		}
@@ -87,7 +99,7 @@ public class MasterController implements Serializable {
 		}
 		return true;
 	}
-	
+
 	public void cerrarSesion() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	}
