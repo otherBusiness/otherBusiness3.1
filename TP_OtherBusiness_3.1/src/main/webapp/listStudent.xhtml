@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -15,7 +15,8 @@
 	<ui:define name="content">
 		<h:form>
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo" action="#{studentController.newStudent()}"
+				<p:commandButton value="Nuevo"
+					action="#{studentController.newStudent()}"
 					styleClass="btn btn-primary" ajax="false" />
 			</div>
 			<div class="row">
@@ -32,20 +33,21 @@
 								<h:outputText value="#{stu.idStudent}" />
 							</p:column>
 							<!-- Sintaxis incluir comentario xhtml -->
-							<p:column headerText="Código Estudiante" sortBy="#{stu.codeStudent}">
+							<p:column headerText="Código Estudiante"
+								sortBy="#{stu.codeStudent}">
 								<h:outputText value="#{stu.codeStudent}" />
 							</p:column>
-							<p:column headerText="E-mail Estudiante" sortBy="#{stu.emailStudent}">
+							<p:column headerText="E-mail Estudiante"
+								sortBy="#{stu.emailStudent}">
 								<h:outputText value="#{stu.emailStudent}" />
 							</p:column>
 							<p:column headerText="Campus" sortBy="#{stu.campus.nameCampus}">
 								<h:outputText value="#{stu.campus.nameCampus}" />
 							</p:column>
-								<p:column headerText="Operación">
+							<p:column headerText="Operación">
 
 								<h:commandLink value="Modificar" exportable="false"
-									action="#{studentController.Modifpre(stu)}"
-									style="color:red;" />
+									action="#{studentController.Modifpre(stu)}" style="color:red;" />
 							</p:column>
 						</p:dataTable>
 					</div>
@@ -53,6 +55,9 @@
 			</div>
 		</h:form>
 	</ui:define>
+	
+	
+	
 	<ui:define name="footerCont">
 	</ui:define>
 </ui:composition>

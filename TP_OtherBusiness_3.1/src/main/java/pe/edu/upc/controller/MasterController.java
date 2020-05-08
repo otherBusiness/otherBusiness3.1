@@ -67,11 +67,36 @@ public class MasterController implements Serializable {
 		case "/listProject.xhtml":
 			rol = "ADMIN";
 			break;
+			
+		case "/project.xhtml":
+			rol = "ADMIN";
+			break;	
+			
+			
+			
+			
+			
+	//--------------------------------------		
 		case "/listStudent.xhtml":
 			rol = "USER";
 			break;
 			
+		case "/student.xhtml":
+			rol = "USER";
+			break;	
+			
+			
+		case "/studentMod.xhtml":
+			rol = "USER";
+			break;	
+				
+			
+			
 		case "/listInvestor.xhtml":
+			rol = "USER";
+			break;	
+			
+		case "/Investor.xhtml":
 			rol = "USER";
 			break;	
 		// case "/panel.xhtml":
